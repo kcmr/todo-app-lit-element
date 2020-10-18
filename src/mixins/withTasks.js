@@ -5,7 +5,7 @@ let tasks = [];
 function toggleProperty(value, property) {
   return tasks.map((task) => ({
     ...task,
-    [property]: task.id === value.id ? !task[property] : task[property],
+    ...(task.id === value.id && { [property]: !task[property] }),
   }));
 }
 
