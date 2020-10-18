@@ -5,7 +5,7 @@ import { defineCustomElement } from './utils';
 import './components/task-form';
 import './components/task-list';
 import './components/archived-task-list';
-import { box } from './styles';
+import { box, button } from './styles';
 
 class TodoApp extends withTasks(LitElement) {
   _handleTaskAdded({ detail: task }) {
@@ -40,17 +40,19 @@ class TodoApp extends withTasks(LitElement) {
           .tasks=${this.tasksNotArchived}
           @task-status-changed=${this._handleTaskStatusChanged}
           @task-archived=${this._handleTaskArchivedChanged}
+          @task-list-deleted=${this.deleteUnarchivedTasks}
+          @task-list-archived=${this.archiveUnarchivedTasks}
         ></task-list>
       </div>
 
-      <div class="box">
-        <h2>Archived tasks</h2>
-        <archived-task-list
-          .tasks=${this.tasksArchived}
-          @task-unarchived=${this._handleTaskArchivedChanged}
-          @task-deleted=${this._handleTaskDeleted}
-        ></archived-task-list>
-      </div>
+      <archived-task-list
+        class="box"
+        ?hidden=${!this.tasksArchived.length}
+        .tasks=${this.tasksArchived}
+        @task-unarchived=${this._handleTaskArchivedChanged}
+        @task-deleted=${this._handleTaskDeleted}
+        @task-list-deleted=${this.deleteArchivedTasks}
+      ></archived-task-list>
     `;
   }
 }
@@ -61,13 +63,6 @@ TodoApp.styles = css`
   task-form {
     padding: 0.5rem;
     margin-bottom: 1rem;
-  }
-
-  h2 {
-    font-size: 1.25rem;
-    font-weight: 500;
-    margin: 0.5rem 0 1rem;
-    padding: 0 0.5rem;
   }
 `;
 

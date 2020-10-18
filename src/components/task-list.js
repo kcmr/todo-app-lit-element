@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import { withBasicStyles } from '../mixins';
-import { button, item, ul } from '../styles';
+import { actionBar, button, item, ul } from '../styles';
 import { defineCustomElement } from '../utils';
 
 class TaskList extends LitElement {
@@ -29,6 +29,14 @@ class TaskList extends LitElement {
     );
   }
 
+  _handleDeleteAll() {
+    this.dispatchEvent(new Event('task-list-deleted'));
+  }
+
+  _handleArchiveAll() {
+    this.dispatchEvent(new Event('task-list-archived'));
+  }
+
   render() {
     if (this.tasks.length === 0) {
       return null;
@@ -55,6 +63,11 @@ class TaskList extends LitElement {
           `,
         )}
       </ul>
+
+      <div class="action-bar bottom-bar">
+        <button class="danger" @click=${this._handleArchiveAll}>Archive all</button>
+        <button class="danger" @click=${this._handleDeleteAll}>Delete all</button>
+      </div>
     `;
   }
 }
@@ -65,6 +78,7 @@ TaskList.styles = css`
   ${button(css`
     margin-right: 0.5rem;
   `)}
+  ${actionBar}
 
   label {
     flex: 1;

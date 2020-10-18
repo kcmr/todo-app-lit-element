@@ -62,4 +62,19 @@ export const withTasks = (SuperClass) =>
     deleteTask(task) {
       this.tasks = tasks.filter((t) => t.id !== task.id);
     }
+
+    deleteArchivedTasks() {
+      this.tasks = tasks.filter((t) => !t.archived);
+    }
+
+    deleteUnarchivedTasks() {
+      this.tasks = tasks.filter((t) => t.archived);
+    }
+
+    archiveUnarchivedTasks() {
+      this.tasks = tasks.map((t) => ({
+        ...t,
+        ...(!t.archived && { archived: true }),
+      }));
+    }
   };

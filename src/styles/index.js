@@ -13,6 +13,8 @@ const button = (styles = css``) => css`
     font: inherit;
     font-size: 0.8125rem;
     line-height: 1.8;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     background-color: #f0f0f0;
     color: #676565;
     cursor: pointer;
@@ -25,6 +27,15 @@ const button = (styles = css``) => css`
 
   button:hover {
     background-color: #dcdcdc;
+  }
+
+  button.danger {
+    background-color: #f3d7d7;
+    color: #a02323;
+  }
+
+  button.danger:hover {
+    background-color: #eabbbb;
   }
 `;
 
@@ -66,4 +77,25 @@ const box = css`
   }
 `;
 
-export { host, ul, button, item, box };
+const actionBar = css`
+  .action-bar {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0 1rem;
+    padding: 0 0.5rem;
+    justify-content: flex-end;
+  }
+
+  .action-bar.bottom-bar {
+    margin: 1rem 0 0.5rem;
+  }
+
+  .action-bar .title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0;
+    flex: 1;
+  }
+`;
+
+export { host, ul, button, item, box, actionBar };
