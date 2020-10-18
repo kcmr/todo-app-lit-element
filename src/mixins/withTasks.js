@@ -27,7 +27,7 @@ class Task {
   constructor(task) {
     this.label = task;
     this.completed = false;
-    this.id = `task-${performance.now()}`;
+    this.id = `${Date.now()}`;
     this.archived = false;
   }
 }
