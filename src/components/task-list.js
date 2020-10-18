@@ -51,7 +51,7 @@ class TaskList extends LitElement {
                 <input
                   id=${task.id}
                   type="checkbox"
-                  ?checked=${task.completed}
+                  .checked=${task.completed}
                   @change=${() => this._handleCheckboxChange(task)}
                 />
                 <span class="label">${task.label}</span>
