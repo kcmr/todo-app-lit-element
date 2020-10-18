@@ -1,0 +1,9 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+todo-app {
+  max-width: 600px;
+  margin: auto;
+}

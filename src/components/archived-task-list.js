@@ -1,4 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
+import { withBasicStyles } from '../mixins';
+import { button, item, ul } from '../styles';
 import { defineCustomElement } from '../utils';
 
 class ArhivedTaskList extends LitElement {
@@ -39,7 +41,9 @@ class ArhivedTaskList extends LitElement {
             <li class="item">
               <span class="label">${task.label}</span>
               <button @click=${() => this._handleTaskUnarchive(task)}>Unarchive</button>
-              <button @click=${() => this._handleTaskDelete(task)}>Delete</button>
+              <button class="danger" @click=${() => this._handleTaskDelete(task)}>
+                Delete
+              </button>
             </li>
           `,
         )}
@@ -48,4 +52,25 @@ class ArhivedTaskList extends LitElement {
   }
 }
 
-defineCustomElement('archived-task-list', ArhivedTaskList);
+ArhivedTaskList.styles = css`
+  ${ul()}
+  ${item}
+  ${button(css`
+    margin-left: 0.5rem;
+  `)}
+
+  .danger {
+    background-color: #f3d7d7;
+    color: #a02323;
+  }
+
+  .danger:hover {
+    background-color: #eabbbb;
+  }
+
+  .label {
+    flex: 1;
+  }
+`;
+
+defineCustomElement('archived-task-list', withBasicStyles(ArhivedTaskList));

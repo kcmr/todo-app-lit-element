@@ -1,10 +1,11 @@
 import { LitElement, html, css } from 'lit-element';
-import { withTasks } from './mixins';
+import { withBasicStyles, withTasks } from './mixins';
 import { defineCustomElement } from './utils';
 
 import './components/task-form';
 import './components/task-list';
 import './components/archived-task-list';
+import { box } from './styles';
 
 class TodoApp extends withTasks(LitElement) {
   _handleTaskAdded({ detail: task }) {
@@ -54,4 +55,8 @@ class TodoApp extends withTasks(LitElement) {
   }
 }
 
-defineCustomElement('todo-app', TodoApp);
+TodoApp.styles = css`
+  ${box}
+`;
+
+defineCustomElement('todo-app', withBasicStyles(TodoApp));

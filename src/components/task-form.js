@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit-element';
+import { withBasicStyles } from '../mixins';
 import { defineCustomElement } from '../utils';
 
 class TaskForm extends LitElement {
@@ -50,4 +51,10 @@ class TaskForm extends LitElement {
   }
 }
 
-defineCustomElement('task-form', TaskForm);
+TaskForm.styles = css`
+  label {
+    display: block;
+  }
+`;
+
+defineCustomElement('task-form', withBasicStyles(TaskForm));

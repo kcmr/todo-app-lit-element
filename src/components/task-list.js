@@ -1,4 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
+import { withBasicStyles } from '../mixins';
+import { button, item, ul } from '../styles';
 import { defineCustomElement } from '../utils';
 
 class TaskList extends LitElement {
@@ -57,4 +59,26 @@ class TaskList extends LitElement {
   }
 }
 
-defineCustomElement('task-list', TaskList);
+TaskList.styles = css`
+  ${ul()}
+  ${item}
+  ${button()}
+
+  label {
+    flex: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: baseline;
+  }
+
+  input {
+    margin-right: 0.5rem;
+  }
+
+  input:checked + span {
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+`;
+
+defineCustomElement('task-list', withBasicStyles(TaskList));
