@@ -65,7 +65,7 @@ class TaskList extends LitElement {
       </ul>
 
       <div class="action-bar bottom-bar">
-        <button class="danger" @click=${this._handleArchiveAll}>Archive all</button>
+        <button @click=${this._handleArchiveAll}>Archive all</button>
         <button class="danger" @click=${this._handleDeleteAll}>Delete all</button>
       </div>
     `;
