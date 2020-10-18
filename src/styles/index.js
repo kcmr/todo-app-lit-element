@@ -11,13 +11,14 @@ const ul = (styles = css``) => css`
 const button = (styles = css``) => css`
   button {
     font: inherit;
-    font-size: 0.9375rem;
-    line-height: 1.5;
+    font-size: 0.8125rem;
+    line-height: 1.8;
     background-color: #f0f0f0;
-    color: #888;
+    color: #676565;
     cursor: pointer;
     border: none;
     border-radius: 2px;
+    text-transform: lowercase;
 
     ${styles}
   }
@@ -47,6 +48,7 @@ const item = css`
     display: flex;
     padding: 0.5rem;
     align-items: center;
+    font-size: 0.9375rem;
   }
 
   .item + .item {

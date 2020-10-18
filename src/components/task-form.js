@@ -53,7 +53,26 @@ class TaskForm extends LitElement {
 
 TaskForm.styles = css`
   label {
+    font-size: 20px;
+    font-weight: 500;
     display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    font: inherit;
+    font-size: 0.9375rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+  }
+
+  input:focus {
+    border-color: dodgerblue;
+    outline: none;
+    box-shadow: inset rgba(0, 0, 0, 0.5) 0 2px 3px -2px;
   }
 `;
 

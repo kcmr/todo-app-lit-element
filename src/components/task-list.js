@@ -62,17 +62,22 @@ class TaskList extends LitElement {
 TaskList.styles = css`
   ${ul()}
   ${item}
-  ${button()}
+  ${button(css`
+    margin-right: 0.5rem;
+  `)}
 
   label {
     flex: 1;
     cursor: pointer;
     display: flex;
-    align-items: baseline;
+    align-items: center;
   }
 
   input {
     margin-right: 0.5rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    align-self: baseline;
   }
 
   input:checked + span {

@@ -57,6 +57,18 @@ class TodoApp extends withTasks(LitElement) {
 
 TodoApp.styles = css`
   ${box}
+
+  task-form {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0.5rem 0 1rem;
+    padding: 0 0.5rem;
+  }
 `;
 
 defineCustomElement('todo-app', withBasicStyles(TodoApp));
