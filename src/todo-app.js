@@ -5,7 +5,7 @@ import { defineCustomElement } from './utils';
 import './components/task-form';
 import './components/task-list';
 import './components/archived-task-list';
-import { box, button } from './styles';
+import { box } from './styles';
 
 class TodoApp extends withTasks(LitElement) {
   _handleTaskAdded({ detail: task }) {
